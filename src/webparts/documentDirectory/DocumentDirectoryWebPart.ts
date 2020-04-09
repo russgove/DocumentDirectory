@@ -6,27 +6,27 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-import  {ITile} from "./ITile"
+import { ITile } from "./ITile"
 import * as strings from 'DocumentDirectoryWebPartStrings';
 import DocumentDirectory from './components/DocumentDirectory';
 import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
-
+import { ColorPicker } from "office-ui-fabric-react";
 
 export interface IDocumentDirectoryWebPartProps {
   description: string;
-  tiles:Array<ITile>;
+  tiles: Array<ITile>;
 }
 
-export default class DocumentDirectoryWebPart extends BaseClientSideWebPart <IDocumentDirectoryWebPartProps> {
+export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDocumentDirectoryWebPartProps> {
 
   public render(): void {
     const element: React.ReactElement<IDocumentDirectoryProps> = React.createElement(
       DocumentDirectory,
       {
         description: this.properties.description,
-        tiles:this.properties.tiles
-        
+        tiles: this.properties.tiles
+
       }
     );
 
@@ -36,15 +36,15 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart <IDo
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
- 
+
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
-protected onPropertyPaneFieldChanged(property:string){
+  protected onPropertyPaneFieldChanged(property: string) {
 
 
-  debugger;
-}
+    debugger;
+  }
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -63,20 +63,34 @@ protected onPropertyPaneFieldChanged(property:string){
                   key: "collectionDates",
                   label: "Tiles to Display",
                   panelHeader: "panel Header Tiles to Displayr",
-                  panelDescription:"Panel description",
-                  manageBtnLabel:"Manage Tiles",
-                  saveBtnLabel:"Save Tiles",
-                  
-                  enableSorting:true,
-                 
-          
+                  panelDescription: "Panel description",
+                  manageBtnLabel: "Manage Tiles",
+                  saveBtnLabel: "Save Tiles",
+
+                  enableSorting: true,
+
+
                   value: this.properties.tiles,
                   fields: [
                     {
                       id: "color",
                       title: "Color",
-                      type: CustomCollectionFieldType.string,
-                      required: true
+                      type: CustomCollectionFieldType.custom,
+                      onCustomRender: (field, value, onUpdate, item, itemId, onError) => {
+
+                        return (
+                          React.createElement("div", null,
+                            React.createElement(ColorPicker, {
+                              key: itemId,
+                              color: value,
+                              onChange: (event: React.FormEvent<HTMLInputElement>,color:any) => {
+                                debugger;
+                                onUpdate(field.id, color.str);
+                              }
+                            })
+                          )
+                        );
+                      }
                     },
                     {
                       id: "url",
