@@ -1,33 +1,35 @@
 import * as React from "react";
-
+import  {ITile} from "../ITile"
 import styles from "./DocumentDirectory.module.scss";
+import { HoverCard, IHoverCardProps } from "./HoverCard";
 export interface ITileProps {
-    url: string;
-    color: string;
-    text: string;
-    hoverText: string;
+    tile: ITile;
 }
-export const Tile = function (props: ITileProps): JSX.Element {
+export interface ITileState {
+    isHovered: boolean;
 
-    const [isHovered, setIsHovered] = React.useState(false);
-    const Navbar = ({ visible }) => {
-        console.log(visible);
-        let myClass = styles.navbar + " ";
-        if (visible) { myClass += styles.slideIn } else { myClass += styles.slideOut };
+}
+export class Tile extends React.Component<ITileProps, ITileState>{
+    constructor(props) {
+        super(props);
+        this.state = { isHovered: false }
+    }
+    setIsHovered(newval:boolean){
+
+    }
+    render() {
         return (
-            <div className={myClass}>
-                {props.hoverText}
-            </div>);
-    };
-    return (
-        <a href="https://www.google.com" >
-            <div className={styles.tile} style={{ backgroundColor: props.color }}
-                onMouseOver={(e) => { setIsHovered(true); }}
-                onMouseOut={(e) => { setIsHovered(false); }} >
-                <Navbar visible={isHovered} />
-                <span className={styles.tileLabel}> {props.text} </span>
+            <a href={this.props.tile.url} >
+                <div className={styles.tile} style={{ backgroundColor: this.props.tile.color }}
+                    onMouseOver={(e) => { this.setState({isHovered:true}); }}
+                    onMouseOut={(e) => { this.setState({isHovered:false});  }} >
+                    <HoverCard isHovered={this.state.isHovered} hoverText={this.props.tile.hoverText} />
+                    <span className={styles.tileLabel}> {this.props.tile.text} </span>
 
-            </div>
-        </a>
-    );
-};
+                </div>
+            </a>
+        );
+    }
+}
+
+;

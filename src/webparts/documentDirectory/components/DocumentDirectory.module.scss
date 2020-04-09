@@ -1,46 +1,52 @@
-@import '~office-ui-fabric-react/dist/sass/References.scss';
-.documentDirectory {
-    .root {
-        width: 100%;
+    @import '~office-ui-fabric-react/dist/sass/References.scss';
+    .documentDirectory {
+        .root {
+            width: 100%;
+        }
+        .imageContainer .frame {
+            background-color: transparent;
+        }
+        .tile {
+            width: 150px;
+            height: 100px;
+            margin: 1px;
+            position: relative;
+            float: left;
+            overflow: hidden;
+        }
+        .tile .tileLabel {
+            font-size: 12px;
+            left: 3px;
+            padding: 3px;
+            position: absolute;
+            color: white;
+            bottom: 0;
+            left: 0;
+        }
+        .tile .tileHoverText {
+            transform: translateX(-150px);
+            transition: transform 50ms ease-in;
+            text-align: center;
+            padding-top: 40px;
+            position: absolute;
+            color: white;
+            left: 0;
+            font-size: 11px;
+        }
+        .navbar {
+            transform: translateX(-150px);
+            transition: transform 400ms ease-in;
+            text-align: center;
+            // padding-top: 40px;
+            position: absolute;
+            color: white;
+            left: 0;
+            font-size: 11px;
+        }
+        .navbar.slideIn {
+            transform: translateX(0px)
+        }
+        .navbar.slideOut {
+            transition: transform 2000ms ease 1000ms;
+        }
     }
-    .imageContainer .frame {
-        background-color: transparent;
-    }
-    .tile {
-        width: 150px;
-        height: 100px;
-        margin: 1px;
-        position: relative;
-        float: left;
-    }
-    .tile .tileLabel {
-        font-size: 12px;
-        left: 3px;
-        padding: 3px;
-        position: absolute;
-        color: white;
-        bottom: 0;
-        left: 0;
-    }
-    .tile .tileHoverText {
-        transform: translateX(-220px);
-        transition: transform 400ms ease-in;
-        text-align: center;
-        padding-top: 40px;
-        position: absolute;
-        color: white;
-        left: 0;
-        font-size: 11px;
-    }
-    .navbar {
-        width: 150px;
-        transform: translateX(-150px);
-        transition: transform 231400ms ease 1000ms;
-    }
-    .navbar.slideIn {
-        transform: translateX(0);
-    }
-    .navbar.slideOut {
-        transform: translateX(-150px);
-    }
-}

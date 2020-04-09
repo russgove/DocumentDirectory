@@ -6,13 +6,16 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-
+import  {ITile} from "./ITile"
 import * as strings from 'DocumentDirectoryWebPartStrings';
 import DocumentDirectory from './components/DocumentDirectory';
 import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
+import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
+
 
 export interface IDocumentDirectoryWebPartProps {
   description: string;
+  tiles:Array<ITile>;
 }
 
 export default class DocumentDirectoryWebPart extends BaseClientSideWebPart <IDocumentDirectoryWebPartProps> {
@@ -21,7 +24,9 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart <IDo
     const element: React.ReactElement<IDocumentDirectoryProps> = React.createElement(
       DocumentDirectory,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        tiles:this.properties.tiles
+        
       }
     );
 
@@ -31,11 +36,15 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart <IDo
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
-
+ 
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
+protected onPropertyPaneFieldChanged(property:string){
 
+
+  debugger;
+}
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -49,6 +58,57 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart <IDo
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyFieldCollectionData("tiles", {
+                  key: "collectionDates",
+                  label: "Tiles to Display",
+                  panelHeader: "panel Header Tiles to Displayr",
+                  panelDescription:"Panel description",
+                  manageBtnLabel:"Manage Tiles",
+                  saveBtnLabel:"Save Tiles",
+                  
+                  enableSorting:true,
+                 
+          
+                  value: this.properties.tiles,
+                  fields: [
+                    {
+                      id: "color",
+                      title: "Color",
+                      type: CustomCollectionFieldType.string,
+                      required: true
+                    },
+                    {
+                      id: "url",
+                      title: "URL",
+                      type: CustomCollectionFieldType.string
+                    },
+                    {
+                      id: "text",
+                      title: "Text",
+                      type: CustomCollectionFieldType.string,
+                      required: true
+                    },
+                    {
+                      id: "hoverText",
+                      title: "Hover Text",
+                      type: CustomCollectionFieldType.string,
+
+                      required: true
+                    },
+                    {
+                      id: "sequence",
+                      title: "Sequence",
+                      type: CustomCollectionFieldType.number
+                    },
+                    {
+                      id: "disabled",
+                      title: "Disabled",
+                      type: CustomCollectionFieldType.boolean
+                    }
+
+                  ],
+                  disabled: false
                 })
               ]
             }
