@@ -5,6 +5,7 @@ import styles from "./DocumentDirectory.module.scss";
 export interface IHoverCardProps {
     isHovered: boolean;
     hoverText: string;
+    textColor:string;
 }
 export class HoverCard extends React.Component<IHoverCardProps, {}>{
     public render() {
@@ -12,7 +13,7 @@ export class HoverCard extends React.Component<IHoverCardProps, {}>{
         console.log(className);
         return (
             <div className={className} >
-                {this.props.hoverText}
+                <span style={{color:this.props.textColor}} > {this.props.hoverText} </span>
             </div>);
     }
 }
