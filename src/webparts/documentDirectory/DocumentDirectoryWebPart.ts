@@ -11,7 +11,7 @@ import * as strings from 'DocumentDirectoryWebPartStrings';
 import DocumentDirectory from './components/DocumentDirectory';
 import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
-import { ColorPicker } from "office-ui-fabric-react";
+
 import {ColorPickerCustomCollectionField} from "./components/ColorPickerCustomCollectionField";
 
 export interface IDocumentDirectoryWebPartProps {
@@ -22,7 +22,9 @@ export interface IDocumentDirectoryWebPartProps {
 export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDocumentDirectoryWebPartProps> {
 
   public render(): void {
+    debugger;
     const element: React.ReactElement<IDocumentDirectoryProps> = React.createElement(
+      
       DocumentDirectory,
       {
         description: this.properties.description,
@@ -112,14 +114,18 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                       required: true
                     },
                     {
-                      id: "sequence",
-                      title: "Sequence",
-                      type: CustomCollectionFieldType.number
-                    },
-                    {
-                      id: "disabled",
+                      id: "isDisabled",
                       title: "Disabled",
                       type: CustomCollectionFieldType.boolean
+                    },
+                    {
+                      id: "textColor",
+                      title: "Text Color",
+                      type: CustomCollectionFieldType.dropdown,
+                      options:[
+                        {key:"#FFFFFF",text:"Black"},
+                        {key:"#000000",text:"White"}
+                    ]
                     }
 
                   ],
