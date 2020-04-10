@@ -13,6 +13,7 @@ import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 
 import {ColorPickerCustomCollectionField} from "./components/ColorPickerCustomCollectionField";
+import {TileViewerCustomCollectionField} from "./components/TileViewerCustomCollectionField";
 
 export interface IDocumentDirectoryWebPartProps {
   description: string;
@@ -65,7 +66,7 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                 PropertyFieldCollectionData("tiles", {
                   key: "collectionDates",
                   label: "Tiles to Display",
-                  panelHeader: "panel Header Tiles to Display",
+                  panelHeader: "Edit Tiles",
                   panelDescription: "Panel description",
                   manageBtnLabel: "Manage Tiles",
                   saveBtnLabel: "Save Tiles",
@@ -75,6 +76,22 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
 
                   value: this.properties.tiles,
                   fields: [
+                    {
+                      id: "",
+                      title: "Preview",
+                      type: CustomCollectionFieldType.custom,
+                      onCustomRender: (field, value, onUpdate, item, itemId, onError) => {
+
+                        return (
+                          React.createElement("div", null,
+                            React.createElement(TileViewerCustomCollectionField, {
+                              key: itemId,
+                              tile: item,
+                            })
+                          )
+                        );
+                      }
+                    },
                     {
                       id: "color",
                       title: "Color",
