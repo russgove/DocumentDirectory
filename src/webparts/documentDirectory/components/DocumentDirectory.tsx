@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styles from './DocumentDirectory.module.scss';
 import { IDocumentDirectoryProps } from './IDocumentDirectoryProps';
-import { escape } from '@microsoft/sp-lodash-subset';
-import { Tile, ITileProps } from "./Tile";
+
+import { Tile } from "./Tile";
 
 export default class DocumentDirectory extends React.Component<IDocumentDirectoryProps, {}> {
   public render(): React.ReactElement<IDocumentDirectoryProps> {

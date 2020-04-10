@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ITile } from "../ITile";
 import styles from "./DocumentDirectory.module.scss";
-import { HoverCard, IHoverCardProps } from "./HoverCard";
+import { HoverCard } from "./HoverCard";
 export interface ITileProps {
     tile: ITile;
     tileWidth: number;
@@ -17,9 +17,6 @@ export class Tile extends React.Component<ITileProps, ITileState>{
     constructor(props) {
         super(props);
         this.state = { isHovered: false };
-    }
-    private setIsHovered(newval: boolean) {
-
     }
     public render() {
         return (

@@ -1,11 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Version } from '@microsoft/sp-core-library';
-import {
-    IPropertyPaneConfiguration,
-    PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
 import {
     ColorPicker,
@@ -16,9 +10,6 @@ import {
     IColor
 } from 'office-ui-fabric-react';
 
-
-
-import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 
 export interface IPopupColorPickerProps {
     message: string;

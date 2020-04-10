@@ -1,6 +1,4 @@
 import * as React from "react";
-
-import { CSSTransition } from 'react-transition-group';
 import styles from "./DocumentDirectory.module.scss";
 export interface IHoverCardProps {
     isHovered: boolean;
