@@ -24,7 +24,7 @@ export class Tile extends React.Component<ITileProps, ITileState>{
                     onMouseOver={(e) => { this.setState({isHovered:true}); }}
                     onMouseOut={(e) => { this.setState({isHovered:false});  }} >
                     <HoverCard isHovered={this.state.isHovered} hoverText={this.props.tile.hoverText} />
-                    <span className={styles.tileLabel}> {this.props.tile.text} </span>
+                    <span className={styles.tileLabel} style={{color:this.props.tile.textColor}} > {this.props.tile.text} </span>
 
                 </div>
             </a>

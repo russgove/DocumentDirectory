@@ -3,6 +3,6 @@ export interface ITile {
     color: string;
     text: string;
     hoverText: string;
-    textcolor:string;
+    textColor:string;
     isDisabled:boolean;
 }

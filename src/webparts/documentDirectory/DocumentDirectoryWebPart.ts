@@ -123,8 +123,8 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                       title: "Text Color",
                       type: CustomCollectionFieldType.dropdown,
                       options:[
-                        {key:"#FFFFFF",text:"Black"},
-                        {key:"#000000",text:"White"}
+                        {key:"#FFFFFF",text:"White"},
+                        {key:"#000000",text:"Black"}
                     ]
                     }
 
