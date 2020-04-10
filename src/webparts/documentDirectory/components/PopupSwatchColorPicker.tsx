@@ -44,19 +44,20 @@ export class PopupSwatchColorPicker extends React.Component<IPopupSwatchColorPic
         debugger;
     }
     public render() {
+        // move thse to a custom list somwhere
         const colorCellsExample2 = [
-            { id: 'a', label: 'Slate', color: '#667D82' },
-            { id: 'b', label: 'Gray', color: '#B7C8C8' },
-            { id: 'c', label: 'Turquoise', color: '#3DC2E8' },
-            { id: 'd', label: 'Periwinkle', color: '#618CC9' },
-            { id: 'e', label: 'Purple', color: '#8379B8' },
-            { id: 'f', label: 'Fuchia', color: '#E64097' },
-            { id: 'g', label: 'Orange', color: '#F36C31' },
-            { id: 'h', label: 'Yellow', color: '#F8E816' },
-            { id: 'i', label: 'Blue', color: '#0F206C' },
-            { id: 'j', label: 'Green', color: '#79BC00' },
-            { id: 'k', label: 'Black', color: '#000000' },
-            { id: 'l', label: 'White', color: '#FFFFFF' },
+            { id: 'Blue', label: 'Blue', color: '#0F206C' },
+            { id: 'Green', label: 'Green', color: '#79BC00' },
+            { id: 'Slate', label: 'Slate', color: '#667D82' },
+            { id: 'Gray', label: 'Gray', color: '#B7C8C8' },
+            { id: 'Turquoise', label: 'Turquoise', color: '#3DC2E8' },
+            { id: 'Periwinkle', label: 'Periwinkle', color: '#618CC9' },
+            { id: 'Purple', label: 'Purple', color: '#8379B8' },
+            { id: 'Fuchia', label: 'Fuchia', color: '#E64097' },
+            { id: 'Orange', label: 'Orange', color: '#F36C31' },
+            { id: 'Yellow', label: 'Yellow', color: '#F8E816' },
+            { id: 'Black', label: 'Black', color: '#000000' },
+            { id: 'White', label: 'White', color: '#FFFFFF' },
         ];
         debugger;
         return <DialogContent
