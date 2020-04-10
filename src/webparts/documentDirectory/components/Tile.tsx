@@ -1,5 +1,5 @@
 import * as React from "react";
-import  {ITile} from "../ITile"
+import  {ITile} from "../ITile";
 import styles from "./DocumentDirectory.module.scss";
 import { HoverCard, IHoverCardProps } from "./HoverCard";
 export interface ITileProps {
@@ -12,12 +12,12 @@ export interface ITileState {
 export class Tile extends React.Component<ITileProps, ITileState>{
     constructor(props) {
         super(props);
-        this.state = { isHovered: false }
+        this.state = { isHovered: false };
     }
-    setIsHovered(newval:boolean){
+    private setIsHovered(newval:boolean){
 
     }
-    render() {
+    public render() {
         return (
             <a href={this.props.tile.url} >
                 <div className={styles.tile} style={{ backgroundColor: this.props.tile.color }}
@@ -32,4 +32,3 @@ export class Tile extends React.Component<ITileProps, ITileState>{
     }
 }
 
-;

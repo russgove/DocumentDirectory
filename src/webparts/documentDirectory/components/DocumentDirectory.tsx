@@ -6,10 +6,10 @@ import { Tile, ITileProps } from "./Tile";
 
 export default class DocumentDirectory extends React.Component<IDocumentDirectoryProps, {}> {
   public render(): React.ReactElement<IDocumentDirectoryProps> {
-    const tiles = []
+    const tiles = [];
 
     for (const propTile of this.props.tiles) {
-      tiles.push(<Tile  tile={propTile}/>)
+      tiles.push(<Tile  tile={propTile}/>);
     }
   
     return (

@@ -1,5 +1,5 @@
-import  {ITile} from "../ITile"
+import  {ITile} from "../ITile";
 export interface IDocumentDirectoryProps {
   description: string;
-  tiles:Array<ITile>
+  tiles:Array<ITile>;
 }

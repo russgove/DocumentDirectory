@@ -6,12 +6,13 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-import { ITile } from "./ITile"
+import { ITile } from "./ITile";
 import * as strings from 'DocumentDirectoryWebPartStrings';
 import DocumentDirectory from './components/DocumentDirectory';
 import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 import { ColorPicker } from "office-ui-fabric-react";
+import {ColorPickerCustomCollectionField} from "./components/ColorPickerCustomCollectionField";
 
 export interface IDocumentDirectoryWebPartProps {
   description: string;
@@ -62,7 +63,7 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                 PropertyFieldCollectionData("tiles", {
                   key: "collectionDates",
                   label: "Tiles to Display",
-                  panelHeader: "panel Header Tiles to Displayr",
+                  panelHeader: "panel Header Tiles to Display",
                   panelDescription: "Panel description",
                   manageBtnLabel: "Manage Tiles",
                   saveBtnLabel: "Save Tiles",
@@ -80,12 +81,12 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
 
                         return (
                           React.createElement("div", null,
-                            React.createElement(ColorPicker, {
+                            React.createElement(ColorPickerCustomCollectionField, {
                               key: itemId,
-                              color: value,
-                              onChange: (event: React.FormEvent<HTMLInputElement>,color:any) => {
+                              initialColor: value,
+                              updateColor: (color:string) => {
                                 debugger;
-                                onUpdate(field.id, color.str);
+                                onUpdate(field.id, color);
                               }
                             })
                           )
