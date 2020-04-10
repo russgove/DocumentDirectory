@@ -22,17 +22,7 @@
             bottom: 0;
             left: 0;
         }
-        .tile .tileHoverText {
-            transform: translateX(-150px);
-            transition: transform 50ms ease-in;
-            text-align: center;
-            padding-top: 40px;
-            position: absolute;
-            color: white;
-            left: 0;
-            font-size: 11px;
-        }
-        .navbar {
+        .hoverCard {
             transform: translateX(-150px);
             transition: transform 400ms ease-in;
             text-align: center;
@@ -42,10 +32,7 @@
             left: 0;
             font-size: 11px;
         }
-        .navbar.slideIn {
+        .hoverCard.slideIn {
             transform: translateX(0px)
-        }
-        .navbar.slideOut {
-            transition: transform 2000ms ease 1000ms;
         }
     }

@@ -9,7 +9,7 @@ export interface IHoverCardProps {
 }
 export class HoverCard extends React.Component<IHoverCardProps, {}>{
     public render() {
-        let className = styles.navbar + (this.props.isHovered ? ' ' + styles.slideIn : '');
+        let className = styles.hoverCard + (this.props.isHovered ? ' ' + styles.slideIn : '');
         console.log(className);
         return (
             <div className={className} >
