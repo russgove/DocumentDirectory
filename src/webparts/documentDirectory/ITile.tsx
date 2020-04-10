@@ -5,4 +5,5 @@ export interface ITile {
     hoverText: string;
     textColor:string;
     isDisabled:boolean;
+    iconName?:string;
 }
