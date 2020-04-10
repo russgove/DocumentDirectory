@@ -3,7 +3,7 @@ define([], function() {
         "PropertyPaneDescription": "Description",
         "BasicGroupName": "Group Name",
         "DescriptionFieldLabel": "Description Field",
-        "CardHeightFieldLabel": "Card Height",
-        "CardWidthFieldLabel": "Card Width"
+        "TileHeightFieldLabel": "Card Height",
+        "TileWidthFieldLabel": "Card Width"
     }
 });

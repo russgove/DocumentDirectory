@@ -18,8 +18,8 @@ import {TileViewerCustomCollectionField} from "./components/TileViewerCustomColl
 export interface IDocumentDirectoryWebPartProps {
   description: string;
   tiles: Array<ITile>;
-  cardWidth:number;
-  caedHeight:number;
+  tileWidth:number;
+  tileHeight:number;
 }
 
 export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDocumentDirectoryWebPartProps> {
@@ -31,7 +31,9 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
       DocumentDirectory,
       {
         description: this.properties.description,
-        tiles: this.properties.tiles
+        tiles: this.properties.tiles,
+        tileWidth:this.properties.tileWidth,
+        tileHeight:this.properties.tileHeight
 
       }
     );
@@ -65,12 +67,12 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
                 }),
-                PropertyPaneSlider('cardWidth', {
-                 min:50,max:300,label:strings.CardWidthFieldLabel
+                PropertyPaneSlider('tileWidth', {
+                 min:50,max:300,label:strings.TileWidthFieldLabel
                 }),
-                PropertyPaneSlider('cardHeight', {
+                PropertyPaneSlider('tileHeight', {
                   min:50,max:300,
-                  label: strings.CardHeightFieldLabel
+                  label: strings.TileHeightFieldLabel
                 }),
 
                 PropertyFieldCollectionData("tiles", {

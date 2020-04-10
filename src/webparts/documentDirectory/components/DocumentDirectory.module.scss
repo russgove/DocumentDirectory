@@ -7,7 +7,6 @@
             background-color: transparent;
         }
         .tile {
-            width: 150px;
             height: 100px;
             margin: 1px;
             position: relative;
@@ -23,7 +22,7 @@
             left: 0;
         }
         .hoverCard {
-            transform: translateX(-150px);
+            // transform: translateX(-150px);
             transition: transform 400ms ease-in;
             text-align: center;
             // padding-top: 40px;
@@ -32,7 +31,7 @@
             left: 0;
             font-size: 11px;
         }
-        .hoverCard.slideIn {
-            transform: translateX(0px)
-        }
+        // .hoverCard.slideIn {
+        //     transform: translateX(0px)
+        // }
     }

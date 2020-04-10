@@ -18,6 +18,8 @@ import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spf
 
 export interface ITileViewerCustomCollectionFieldProps {
     tile: ITile;
+    tileWidth:number;
+    tileHeight:number;
 }
 export interface ITileViewerCustomCollectionFieldState {
 }
@@ -29,7 +31,7 @@ export class TileViewerCustomCollectionField extends React.Component<ITileViewer
     public render() {
 
         return (
-            <Tile tile={this.props.tile}></Tile>
+            <Tile tile={this.props.tile}  tileWidth={this.props.tileWidth} tileHeight={this.props.tileHeight}></Tile>
         );
 
 

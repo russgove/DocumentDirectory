@@ -68,18 +68,16 @@ export class PopupSwatchColorPicker extends React.Component<IPopupSwatchColorPic
         >
             <SwatchColorPicker
                 selectedId={this._pickedColor}
-                // tslint:disable:jsx-no-lambda
-                onCellHovered={(id, color) => this.setState({ newColor: color! })}
-                onCellFocused={(id, color) => this.setState({ newColor: color! })}
-                // tslint:enable:jsx-no-lambda
                 columnCount={4}
                 cellShape={'circle'}
                 cellHeight={35}
                 cellWidth={35}
                 cellBorderWidth={3}
                 colorCells={colorCellsExample2}
-                onColorChanged={(id?: string, color?: string) => {this.props.submit(color)}}
-                
+                onColorChanged={(id?: string, color?: string) => {
+                    this.props.submit(color);
+                }}
+
             />
 
             <DialogFooter>

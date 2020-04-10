@@ -2,8 +2,8 @@ declare interface IDocumentDirectoryWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
-  CardWidthFieldLabel:string;
-  CardHeightFieldLabel:string;
+  TileWidthFieldLabel:string;
+  TileHeightFieldLabel:string;
 }
 
 declare module 'DocumentDirectoryWebPartStrings' {
