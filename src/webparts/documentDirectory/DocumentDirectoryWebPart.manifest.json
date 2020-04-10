@@ -29,6 +29,8 @@
             "description": "DocumentDirectory",
             "tileWidth": 150,
             "tileHeight": 100,
+            "textFontSize": 14,
+            "hovertextFontSize": 11,
             "tiles": [{
                     "color": "#667D82",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",

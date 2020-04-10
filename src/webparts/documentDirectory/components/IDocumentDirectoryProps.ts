@@ -4,4 +4,6 @@ export interface IDocumentDirectoryProps {
   tiles:Array<ITile>;
   tileWidth:number;
   tileHeight:number;
+  textFontSize:number;
+  hovertextFontSize:number;
 }

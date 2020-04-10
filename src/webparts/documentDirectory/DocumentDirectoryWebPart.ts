@@ -3,7 +3,7 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField,PropertyPaneSlider
+  PropertyPaneTextField, PropertyPaneSlider
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { ITile } from "./ITile";
@@ -12,14 +12,17 @@ import DocumentDirectory from './components/DocumentDirectory';
 import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 
-import {ColorPickerCustomCollectionField} from "./components/ColorPickerCustomCollectionField";
-import {TileViewerCustomCollectionField} from "./components/TileViewerCustomCollectionField";
+import { ColorPickerCustomCollectionField } from "./components/ColorPickerCustomCollectionField";
+import { TileViewerCustomCollectionField } from "./components/TileViewerCustomCollectionField";
 
 export interface IDocumentDirectoryWebPartProps {
   description: string;
   tiles: Array<ITile>;
-  tileWidth:number;
-  tileHeight:number;
+  tileWidth: number;
+  tileHeight: number;
+  textFontSize: number;
+  hovertextFontSize: number;
+
 }
 
 export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDocumentDirectoryWebPartProps> {
@@ -27,13 +30,15 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
   public render(): void {
     debugger;
     const element: React.ReactElement<IDocumentDirectoryProps> = React.createElement(
-      
+
       DocumentDirectory,
       {
         description: this.properties.description,
         tiles: this.properties.tiles,
-        tileWidth:this.properties.tileWidth,
-        tileHeight:this.properties.tileHeight
+        tileWidth: this.properties.tileWidth,
+        tileHeight: this.properties.tileHeight,
+        textFontSize: this.properties.textFontSize,
+        hovertextFontSize: this.properties.hovertextFontSize
 
       }
     );
@@ -48,11 +53,7 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
-  protected onPropertyPaneFieldChanged(property: string) {
 
-
-    debugger;
-  }
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -68,11 +69,17 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                   label: strings.DescriptionFieldLabel
                 }),
                 PropertyPaneSlider('tileWidth', {
-                 min:50,max:300,label:strings.TileWidthFieldLabel
+                  min: 50, max: 300, label: strings.TileWidthFieldLabel
                 }),
                 PropertyPaneSlider('tileHeight', {
-                  min:50,max:300,
+                  min: 50, max: 300,
                   label: strings.TileHeightFieldLabel
+                }),
+                PropertyPaneSlider('textFontSize', {
+                  min: 1, max: 30, label: strings.TextFontSizeFieldLabel
+                }),
+                PropertyPaneSlider('hovertextFontSize', {
+                  min: 1, max: 30, label: strings.HoverTextFontSizeFieldLabel
                 }),
 
                 PropertyFieldCollectionData("tiles", {
@@ -99,6 +106,10 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                             React.createElement(TileViewerCustomCollectionField, {
                               key: itemId,
                               tile: item,
+                              tileWidth: this.properties.tileWidth,
+                              tileHeight: this.properties.tileHeight,
+                              textFontSize: this.properties.textFontSize,
+                              hovertextFontSize: this.properties.hovertextFontSize
                             })
                           )
                         );
@@ -115,8 +126,8 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                             React.createElement(ColorPickerCustomCollectionField, {
                               key: itemId,
                               initialColor: value,
-                              textColor:item.textColor,
-                              updateColor: (color:string) => {
+                              textColor: item.textColor,
+                              updateColor: (color: string) => {
                                 debugger;
                                 onUpdate(field.id, color);
                               }
@@ -152,10 +163,10 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                       id: "textColor",
                       title: "Text Color",
                       type: CustomCollectionFieldType.dropdown,
-                      options:[
-                        {key:"#FFFFFF",text:"White"},
-                        {key:"#000000",text:"Black"}
-                    ]
+                      options: [
+                        { key: "#FFFFFF", text: "White" },
+                        { key: "#000000", text: "Black" }
+                      ]
                     }
 
                   ],

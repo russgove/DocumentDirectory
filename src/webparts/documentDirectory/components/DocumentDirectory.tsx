@@ -10,7 +10,13 @@ export default class DocumentDirectory extends React.Component<IDocumentDirector
 debugger;
     for (const propTile of this.props.tiles) {
       if (!propTile.isDisabled)
-      tiles.push(<Tile  tile={propTile} tileHeight={this.props.tileHeight} tileWidth={this.props.tileWidth}/>);
+      tiles.push(<Tile  
+        tile={propTile} 
+        tileHeight={this.props.tileHeight} 
+        tileWidth={this.props.tileWidth}
+        textFontSize={this.props.textFontSize}
+        hovertextFontSize={this.props.hovertextFontSize}
+        />);
     }
   
     return (

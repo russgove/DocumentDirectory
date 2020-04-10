@@ -1,13 +1,14 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
+import styles from './DocumentDirectory.module.scss';
 import {
     IPropertyPaneConfiguration,
     PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-import  {ITile} from "../ITile";
-import {Tile} from "./Tile";
+import { ITile } from "../ITile";
+import { Tile } from "./Tile";
 
 import ColorPickerDialog from './PopupColorPicker';
 import SwatchColorPickerDialog from './PopupSwatchColorPicker';
@@ -18,20 +19,31 @@ import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spf
 
 export interface ITileViewerCustomCollectionFieldProps {
     tile: ITile;
-    tileWidth:number;
-    tileHeight:number;
+    tileWidth: number;
+    tileHeight: number;
+    textFontSize: number;
+    hovertextFontSize: number;
 }
 export interface ITileViewerCustomCollectionFieldState {
 }
 export class TileViewerCustomCollectionField extends React.Component<ITileViewerCustomCollectionFieldProps, ITileViewerCustomCollectionFieldState>{
     constructor(props) {
         super(props);
-        
+
     }
     public render() {
-
+debugger;
         return (
-            <Tile tile={this.props.tile}  tileWidth={this.props.tileWidth} tileHeight={this.props.tileHeight}></Tile>
+            <div className={styles.documentDirectory}>
+            <Tile
+                tile={this.props.tile}
+                tileWidth={this.props.tileWidth}
+                tileHeight={this.props.tileHeight}
+                textFontSize={this.props.textFontSize}
+                hovertextFontSize={this.props.hovertextFontSize}
+          
+          />
+          </div>
         );
 
 
