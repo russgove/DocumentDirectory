@@ -27,6 +27,8 @@
         "officeFabricIconFontName": "Page",
         "properties": {
             "description": "DocumentDirectory",
+            "cardWidth": 150,
+            "cardHeight": 100,
             "tiles": [{
                     "color": "#667D82",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",

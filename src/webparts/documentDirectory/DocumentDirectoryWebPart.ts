@@ -3,7 +3,7 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,PropertyPaneSlider
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { ITile } from "./ITile";
@@ -18,6 +18,8 @@ import {TileViewerCustomCollectionField} from "./components/TileViewerCustomColl
 export interface IDocumentDirectoryWebPartProps {
   description: string;
   tiles: Array<ITile>;
+  cardWidth:number;
+  caedHeight:number;
 }
 
 export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDocumentDirectoryWebPartProps> {
@@ -63,6 +65,14 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
                 }),
+                PropertyPaneSlider('cardWidth', {
+                 min:50,max:300,label:strings.CardWidthFieldLabel
+                }),
+                PropertyPaneSlider('cardHeight', {
+                  min:50,max:300,
+                  label: strings.CardHeightFieldLabel
+                }),
+
                 PropertyFieldCollectionData("tiles", {
                   key: "collectionDates",
                   label: "Tiles to Display",
