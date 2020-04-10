@@ -17,6 +17,7 @@ export interface IColorPickerCustomCollectionFieldProps {
     initialColor: string;
     itemId: string;
     updateColor: (newColor: string) => void;
+    textColor:string;
 }
 export interface IColorPickerCustomCollectionFieldState {
     showColorPicker: boolean;
@@ -31,7 +32,7 @@ export class ColorPickerCustomCollectionField extends React.Component<IColorPick
 
         return (
             <div>
-                <button style={{ color: "White", backgroundColor: this.state.newColor }}
+                <button style={{ color: this.props.textColor, backgroundColor: this.state.newColor }}
                     onClick={(e) => {
                         debugger;
                         this.setState({ showColorPicker: true });

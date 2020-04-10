@@ -86,6 +86,7 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                             React.createElement(ColorPickerCustomCollectionField, {
                               key: itemId,
                               initialColor: value,
+                              textColor:item.textColor,
                               updateColor: (color:string) => {
                                 debugger;
                                 onUpdate(field.id, color);
