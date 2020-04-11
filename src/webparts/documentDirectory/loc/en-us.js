@@ -7,5 +7,6 @@ define([], function() {
         "TileWidthFieldLabel": "Card Width",
         "TextFontSizeFieldLabel": "Text Font Size",
         "HoverTextFontSizeFieldLabel": "Hover-text Font Size",
+        "IconSizeFieldLabel": "Icon Size",
     }
 });

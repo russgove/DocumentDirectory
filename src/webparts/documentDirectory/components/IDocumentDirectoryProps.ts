@@ -6,4 +6,5 @@ export interface IDocumentDirectoryProps {
   tileHeight:number;
   textFontSize:number;
   hovertextFontSize:number;
+  iconSize:number;
 }

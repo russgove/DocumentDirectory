@@ -31,54 +31,62 @@
             "tileHeight": 100,
             "textFontSize": 14,
             "hovertextFontSize": 11,
+            "iconSize": 15,
             "tiles": [{
                     "color": "#667D82",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "Money"
                 },
                 {
                     "color": "#B7C8C8",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ENG*",
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "MobileReport"
                 },
                 {
                     "color": "#3DC2E8",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "AlarmClock"
                 },
                 {
                     "color": "#618CC9",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ENG*",
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "12PointStar"
                 },
                 {
                     "color": "#8379B8",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "AlertSolid"
                 },
                 {
                     "color": "#E64097",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ENG*",
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "AnalyticsQuery"
                 },
                 {
                     "color": "#F36C31",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "iconName": "Add"
                 },
                 {
                     "color": "#F8E816",

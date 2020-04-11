@@ -8,6 +8,7 @@ export interface ITileViewerCustomCollectionFieldProps {
     tileHeight: number;
     textFontSize: number;
     hovertextFontSize: number;
+    iconSize:number;
 }
 export interface ITileViewerCustomCollectionFieldState {
 }
@@ -26,6 +27,7 @@ export class TileViewerCustomCollectionField extends React.Component<ITileViewer
                 tileHeight={this.props.tileHeight}
                 textFontSize={this.props.textFontSize}
                 hovertextFontSize={this.props.hovertextFontSize}
+                iconSize={this.props.iconSize}
           
           />
           </div>

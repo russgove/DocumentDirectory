@@ -16,6 +16,7 @@ export default class DocumentDirectory extends React.Component<IDocumentDirector
         tileWidth={this.props.tileWidth}
         textFontSize={this.props.textFontSize}
         hovertextFontSize={this.props.hovertextFontSize}
+        iconSize={this.props.iconSize}
         />);
     }
   

@@ -6,6 +6,7 @@ declare interface IDocumentDirectoryWebPartStrings {
   TileHeightFieldLabel:string;
   TextFontSizeFieldLabel:string;
   HoverTextFontSizeFieldLabel:string;
+  IconSizeFieldLabel:string;
 }
 
 declare module 'DocumentDirectoryWebPartStrings' {

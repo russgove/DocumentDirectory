@@ -24,6 +24,7 @@ export interface IDocumentDirectoryWebPartProps {
   tileHeight: number;
   textFontSize: number;
   hovertextFontSize: number;
+  iconSize:number;
 
 }
 
@@ -40,7 +41,8 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
         tileWidth: this.properties.tileWidth,
         tileHeight: this.properties.tileHeight,
         textFontSize: this.properties.textFontSize,
-        hovertextFontSize: this.properties.hovertextFontSize
+        hovertextFontSize: this.properties.hovertextFontSize,
+        iconSize:this.properties.iconSize
 
       }
     );
@@ -83,7 +85,10 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                 PropertyPaneSlider('hovertextFontSize', {
                   min: 1, max: 30, label: strings.HoverTextFontSizeFieldLabel
                 }),
-
+                PropertyPaneSlider('iconSize', {
+                  min: 1, max: 100, label: strings.IconSizeFieldLabel
+                }),
+        
                 PropertyFieldCollectionData("tiles", {
                   key: "collectionDates",
                   label: "Tiles to Display",
