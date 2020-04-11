@@ -1,5 +1,50 @@
     @import '~office-ui-fabric-react/dist/sass/References.scss';
+    .IconPickerCustomCollectionField {
+        width: 70px;
+    }
+    
+    .ColorPickerCustomCollectionField {
+        width: 70px;
+    }
+    
+    .editPanelTable {
+        text-align: center;
+    }
+    
+    .popupIconPicker {
+        .iconlist {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 10px -5px;
+        }
+        .iconListDiv {
+            overflow: scroll;
+            height: 600px;
+            width: 800px;
+        }
+        .iconListItem {
+            font-size: large;
+            height: 100px;
+            width: 175px;
+            text-align: center;
+            display: inline-block;
+        }
+        .icon {
+            display: block;
+            font-size: 40px;
+            height: 40px;
+        }
+    }
+    
     .documentDirectory {
+        .tileAnchor {
+            text-align: center;
+        }
+        .iconListItem {
+            font-size: large;
+        }
         .root {
             width: 100%;
         }

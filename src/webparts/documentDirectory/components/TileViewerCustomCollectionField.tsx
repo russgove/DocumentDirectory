@@ -17,9 +17,9 @@ export class TileViewerCustomCollectionField extends React.Component<ITileViewer
 
     }
     public render() {
-debugger;
+
         return (
-            <div className={styles.documentDirectory}>
+            <div className={styles.documentDirectory} style={{width:`${this.props.tileWidth}px`}}>
             <Tile
                 tile={this.props.tile}
                 tileWidth={this.props.tileWidth}

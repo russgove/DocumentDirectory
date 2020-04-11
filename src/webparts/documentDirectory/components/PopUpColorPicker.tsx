@@ -25,17 +25,17 @@ export class PopupColorPicker extends React.Component<IPopupColorPickerProps, IP
     private _pickedColor: string;
 
     private _onColorChange = (ev: React.SyntheticEvent<HTMLElement, Event>, color: IColor) => {
-        debugger;
+     
         this._pickedColor = color.str;
     }
     constructor(props) {
         
         super(props);
         this._pickedColor = props.defaultColor || '#FFFFFF';
-        debugger;
+  
     }
     public render() {
-        debugger;
+  
         return <DialogContent
             title='Tile Color'
             subText={this.props.message}

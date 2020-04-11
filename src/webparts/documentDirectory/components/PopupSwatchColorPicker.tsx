@@ -25,14 +25,14 @@ export class PopupSwatchColorPicker extends React.Component<IPopupSwatchColorPic
     private _pickedColor: string;
 
     private _onColorChange = (ev: React.SyntheticEvent<HTMLElement, Event>, color: IColor) => {
-        debugger;
+     
         this._pickedColor = color.str;
     }
     constructor(props) {
 
         super(props);
         this._pickedColor = props.defaultColor || '#FFFFFF';
-        debugger;
+  
     }
     public render() {
         // move thse to a custom list somwhere
@@ -50,7 +50,7 @@ export class PopupSwatchColorPicker extends React.Component<IPopupSwatchColorPic
             { id: 'Black', label: 'Black', color: '#000000' },
             { id: 'White', label: 'White', color: '#FFFFFF' },
         ];
-        debugger;
+     
         return <DialogContent
             title='Tile Color'
             subText={this.props.message}
@@ -83,7 +83,7 @@ export default class SwatchColorPickerDialog extends BaseDialog {
     public colorCode: string;
 
     public render() {
-        debugger;
+       
         ReactDOM.render(<PopupSwatchColorPicker
             close={this.close}
             message={this.message}

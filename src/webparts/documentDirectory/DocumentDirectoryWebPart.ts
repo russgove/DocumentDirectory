@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
+import styles from './components/DocumentDirectory.module.scss';
 import {
   IPropertyPaneConfiguration,
   PropertyPaneTextField, PropertyPaneSlider
@@ -13,6 +14,7 @@ import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 
 import { ColorPickerCustomCollectionField } from "./components/ColorPickerCustomCollectionField";
+import { IconPickerCustomCollectionField } from "./components/IconPickerCustomCollectionField";
 import { TileViewerCustomCollectionField } from "./components/TileViewerCustomCollectionField";
 
 export interface IDocumentDirectoryWebPartProps {
@@ -28,7 +30,7 @@ export interface IDocumentDirectoryWebPartProps {
 export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDocumentDirectoryWebPartProps> {
 
   public render(): void {
-    debugger;
+
     const element: React.ReactElement<IDocumentDirectoryProps> = React.createElement(
 
       DocumentDirectory,
@@ -89,14 +91,13 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                   panelDescription: "Panel description",
                   manageBtnLabel: "Manage Tiles",
                   saveBtnLabel: "Save Tiles",
-
                   enableSorting: true,
-
-
                   value: this.properties.tiles,
+                  tableClassName:styles.editPanelTable,
+                  
                   fields: [
                     {
-                      id: "",
+                      id: "x",
                       title: "Preview",
                       type: CustomCollectionFieldType.custom,
                       onCustomRender: (field, value, onUpdate, item, itemId, onError) => {
@@ -116,6 +117,25 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                       }
                     },
                     {
+                      id: "iconName",
+                      title: "Icon",
+                      type: CustomCollectionFieldType.custom,
+                      onCustomRender: (field, value, onUpdate, item, itemId, onError) => {
+
+                        return (
+                          React.createElement("div", null,
+                            React.createElement(IconPickerCustomCollectionField, {
+                              key: itemId,
+                              tile: item,
+                              updateIcon: (icon: string) => {
+                                onUpdate(field.id, icon);
+                              }
+                            })
+                          )
+                        );
+                      }
+                    },
+                    {
                       id: "color",
                       title: "Color",
                       type: CustomCollectionFieldType.custom,
@@ -128,7 +148,6 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                               initialColor: value,
                               textColor: item.textColor,
                               updateColor: (color: string) => {
-                                debugger;
                                 onUpdate(field.id, color);
                               }
                             })
