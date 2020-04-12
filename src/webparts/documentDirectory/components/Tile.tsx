@@ -2,7 +2,7 @@ import * as React from "react";
 import { ITile } from "../ITile";
 import styles from "./DocumentDirectory.module.scss";
 import { HoverCard } from "./HoverCard";
-import { Icon,Button } from 'office-ui-fabric-react';
+import { Icon } from 'office-ui-fabric-react/lib/Icon';
 export interface ITileProps {
     tile: ITile;
     tileWidth: number;

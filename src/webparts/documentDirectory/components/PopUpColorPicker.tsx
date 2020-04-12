@@ -1,16 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
-import {
-    ColorPicker,
-    PrimaryButton,
-    Button,
-    DialogFooter,
-    DialogContent,
-    IColor
-} from 'office-ui-fabric-react';
-
-
+import { ColorPicker } from 'office-ui-fabric-react/lib/ColorPicker';
+import { PrimaryButton, Button } from 'office-ui-fabric-react/lib/Button';
+import { DialogFooter, DialogContent } from 'office-ui-fabric-react/lib/Dialog';
+import { IColor } from 'office-ui-fabric-react/lib/Color';
 export interface IPopupColorPickerProps {
     message: string;
     close: () => void;
@@ -25,17 +19,17 @@ export class PopupColorPicker extends React.Component<IPopupColorPickerProps, IP
     private _pickedColor: string;
 
     private _onColorChange = (ev: React.SyntheticEvent<HTMLElement, Event>, color: IColor) => {
-     
+
         this._pickedColor = color.str;
     }
     constructor(props) {
-        
+
         super(props);
         this._pickedColor = props.defaultColor || '#FFFFFF';
-  
+
     }
     public render() {
-  
+
         return <DialogContent
             title='Tile Color'
             subText={this.props.message}
@@ -57,11 +51,11 @@ export default class ColorPickerDialog extends BaseDialog {
     public render() {
         debugger;
         ReactDOM.render(<PopupColorPicker
-            close={ this.close }
-            message={ this.message }
-            defaultColor={ this.colorCode }
-            submit={ this._submit }
-            />, this.domElement);
+            close={this.close}
+            message={this.message}
+            defaultColor={this.colorCode}
+            submit={this._submit}
+        />, this.domElement);
     }
 
     public getConfig(): IDialogConfiguration {

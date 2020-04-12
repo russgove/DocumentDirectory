@@ -1,30 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Dialog, BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
-import {
-    DialogFooter,
-    DialogContent,
-    DialogType
-
-} from 'office-ui-fabric-react/lib/Dialog';
-import {
-    Icon
-
-} from 'office-ui-fabric-react/lib/Icon';
-
-import {
-    PrimaryButton,
-    Button,
-
-} from 'office-ui-fabric-react/lib/Button';
-import { SearchBox, } from 'office-ui-fabric-react/lib/SearchBox';
-
-
+import { BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
+import {   DialogFooter,    DialogContent,} from 'office-ui-fabric-react/lib/Dialog';
+import {    Icon} from 'office-ui-fabric-react/lib/Icon';
+import {    PrimaryButton,    Button,} from 'office-ui-fabric-react/lib/Button';
+//import { SearchBox, } from 'office-ui-fabric-react/lib/SearchBox';
 import iconNames from "../../IconNames";
 import styles from './DocumentDirectory.module.scss';
-import { Label } from 'office-ui-fabric-react';
-
-
 
 export interface IPopupIconPickerProps {
     message: string;

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styles from './DocumentDirectory.module.scss';
 import { IDocumentDirectoryProps } from './IDocumentDirectoryProps';
-
 import { Tile } from "./Tile";
 
 export default class DocumentDirectory extends React.Component<IDocumentDirectoryProps, {}> {

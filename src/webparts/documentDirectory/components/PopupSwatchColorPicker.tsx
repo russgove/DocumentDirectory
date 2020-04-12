@@ -1,15 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
-import {
-    SwatchColorPicker,
-    PrimaryButton,
-    Button,
-    DialogFooter,
-    DialogContent,
-    IColor
-} from 'office-ui-fabric-react';
-
+import { SwatchColorPicker } from 'office-ui-fabric-react/lib/SwatchColorPicker';
+import { PrimaryButton, Button } from 'office-ui-fabric-react/lib/Button';
+import { DialogFooter, DialogContent } from 'office-ui-fabric-react/lib/Dialog';
+import { IColor } from 'office-ui-fabric-react/lib/Color';
 
 export interface IPopupSwatchColorPickerProps {
     message: string;

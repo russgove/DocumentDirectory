@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import IconPickerDialog from './PopupIconPicker';
-import { Icon,Button } from 'office-ui-fabric-react';
+import { Button } from 'office-ui-fabric-react/lib/Button';
+import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
 import { ITile } from "../ITile";
 import styles from './DocumentDirectory.module.scss';
