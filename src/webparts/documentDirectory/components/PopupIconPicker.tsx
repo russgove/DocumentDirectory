@@ -1,111 +1,120 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
+import { Dialog, BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
+import {
+    DialogFooter,
+    DialogContent,
+    DialogType
+
+} from 'office-ui-fabric-react/lib/Dialog';
+import {
+    Icon
+
+} from 'office-ui-fabric-react/lib/Icon';
+
 import {
     PrimaryButton,
     Button,
-    DialogFooter,
-    DialogContent, Icon, List
 
-} from 'office-ui-fabric-react';
+} from 'office-ui-fabric-react/lib/Button';
+import { SearchBox, } from 'office-ui-fabric-react/lib/SearchBox';
+
 
 import iconNames from "../../IconNames";
 import styles from './DocumentDirectory.module.scss';
-import * as _ from "lodash";
+import { Label } from 'office-ui-fabric-react';
+
 
 
 export interface IPopupIconPickerProps {
     message: string;
     close: () => void;
     submit: (icon: string) => void;
-    defaultIcon?: string;
+    iconName?: string;
 }
 export interface IPopupIconPickerState {
     showIconPicker: boolean;
     newIcon: string;
+    iconNames: Array<string>;
+    searchText: string;
+
 }
 export class PopupIconPicker extends React.Component<IPopupIconPickerProps, IPopupIconPickerState>{
     private _pickedIcon: string;
+    private allIconNames = iconNames.map((i) => { return i.name; });
 
-    private _oniconChange = (ev: React.SyntheticEvent<HTMLElement, Event>, icon: string) => {
-        debugger;
-        this._pickedIcon = icon;
-    }
     constructor(props) {
 
         super(props);
         this._pickedIcon = props.defaultIcon || '';
-    }
 
-    private getIconListItems() {
+    }
+    public componentDidMount() {
+        this.setState({ iconNames: this.allIconNames, searchText: "" });
+    }
+    private onChange = (_event?: React.ChangeEvent<HTMLInputElement>, newValue?: string): void => {
         debugger;
-        let listItems: Array<any> = [];
-        let myIcons:Array<string>=iconNames.map((i)=>{return i.name;});
-        let uniqIcons=_.sortedUniq(myIcons);
-        
-
-      
-debugger;
-        let rowCount = 0;
-        for (let idx = 0; idx < iconNames.length; idx += 4) {
-
-            listItems.push(
-                {
-                    key: rowCount++,
-                    "icon1": iconNames[idx].name,
-                    "icon2": idx + 2 < iconNames.length ? iconNames[idx + 2].name : null,
-                    "icon3": idx + 3 < iconNames.length ? iconNames[idx + 3].name : null,
-                    "icon4": idx + 4 < iconNames.length ? iconNames[idx + 4].name : null,
-
-                }
-
-            );
+        this.setState({ searchText: newValue })
+        let items: string[];
+        if (newValue.length > 2) {
+            items = this.allIconNames.filter(item => {
+                return item.toLocaleLowerCase().indexOf(newValue.toLocaleLowerCase()) !== -1;
+            });
+        } else {
+            items = this.allIconNames;
         }
-        return listItems;
+        this.setState({
+            iconNames: items
+        });
     }
+
     private RenderIcon(iconName: string): JSX.Element {
 
         return (
             <li>
-            <div 
-            className={styles.iconListItem}
-             key={iconName}
-             data-iconname={iconName}
-              onClick={(e)=>{
-                debugger;
-                this.setState({newIcon:e.target['dataset'].iconName});// gotta fix this
-                this.props.submit(e.target['dataset'].iconName);
-            }}>
-                <Icon iconName={iconName} className={styles.icon} ></Icon>
-                {iconName}
-            </div>
+                <div
+                    className={styles.iconListItem}
+                    key={iconName}
+                    data-iconname={iconName}
+                    onClick={(e) => {
+                        debugger;
+                        this.setState({ newIcon: e.target['dataset'].iconName });// gotta fix this
+                        this.props.submit(e.target['dataset'].iconName);
+                    }}>
+                    <Icon iconName={iconName} className={styles.icon} ></Icon>
+                    {iconName}
+                </div>
             </li>
         );
 
     }
 
     public render() {
+        debugger;
+        return (<div>
+            <DialogContent
 
-        return <DialogContent
-            title='Tile Icon'
-            subText={this.props.message}
-            onDismiss={this.props.close}
-            showCloseButton={true}
-        >
-            <div className={styles.popupIconPicker}>
-                <div className={styles.iconListDiv}>
-                <ul className={styles.iconlist}>
-{iconNames.map((icon)=>{return this.RenderIcon(icon.name);})}
-                </ul>
+                title="Tile Icon"
+                subText={this.props.message}
+                onDismiss={this.props.close}
+                showCloseButton={true}        >
+                <div className={styles.popupIconPicker}>
+                    <div className={styles.iconListDiv}>
+                        <ul className={styles.iconlist}>
+                            {this.state ? this.state.iconNames.map((icon) => { return this.RenderIcon(icon); }) : null}
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <DialogFooter>
-                <Button text='Remove Icon' title='Remove' onClick={() => { this.props.submit(""); }} />
-                <Button text='Cancel' title='Cancel' onClick={this.props.close} />
-                <PrimaryButton text='OK' title='OK' onClick={() => { this.props.submit(this._pickedIcon); }} />
-            </DialogFooter>
-        </DialogContent>;
+                <DialogFooter>
+                    {/* <Label>Current Icon</Label>
+                    <Icon iconName={this.props.iconName}></Icon> */}
+                    <Button text='Remove Icon' title='Remove' onClick={() => { this.props.submit(""); }} />
+                    <Button text='Cancel' title='Cancel' onClick={this.props.close} />
+                    <PrimaryButton text='OK' title='OK' onClick={() => { this.props.submit(this._pickedIcon); }} />
+                </DialogFooter>
+            </DialogContent>
+        </div>);
     }
 }
 export default class IconPickerDialog extends BaseDialog {
@@ -118,7 +127,7 @@ export default class IconPickerDialog extends BaseDialog {
 
             close={this.close}
             message={this.message}
-            defaultIcon={this.iconName}
+            iconName={this.iconName}
             submit={this._submit}
         />, this.domElement);
     }

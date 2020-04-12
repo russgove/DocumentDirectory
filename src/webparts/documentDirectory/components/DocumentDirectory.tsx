@@ -22,7 +22,7 @@ export default class DocumentDirectory extends React.Component<IDocumentDirector
   
     return (
       <div className={styles.documentDirectory}>
-       
+      
         {tiles}
 
       </div>
