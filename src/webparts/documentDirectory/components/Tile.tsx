@@ -21,12 +21,13 @@ export class Tile extends React.Component<ITileProps, ITileState>{
         this.state = { isHovered: false };
     }
     public render() {
+        const effectiveTileWidth=this.props.tile.columns?this.props.tileWidth*this.props.tile.columns:this.props.tileWidth;
         return (
             <a href={this.props.tile.url}  className={styles.tileAnchor}>
-                <div className={styles.tile} style={{ width: this.props.tileWidth, height: this.props.tileHeight, backgroundColor: this.props.tile.color }}
+                <div className={styles.tile} style={{ width: effectiveTileWidth, height: this.props.tileHeight, backgroundColor: this.props.tile.color }}
                     onMouseOver={(e) => { this.setState({ isHovered: true }); }}
                     onMouseOut={(e) => { this.setState({ isHovered: false }); }} >
-                    <HoverCard hoverTextFontSize={this.props.hovertextFontSize} tileWidth={this.props.tileWidth} isHovered={this.state.isHovered} hoverText={this.props.tile.hoverText} textColor={this.props.tile.textColor} />
+                    <HoverCard hoverTextFontSize={this.props.hovertextFontSize} tileWidth={effectiveTileWidth} isHovered={this.state.isHovered} hoverText={this.props.tile.hoverText} textColor={this.props.tile.textColor} />
                     <Icon iconName={this.props.tile.iconName} style={                       {
                         paddingTop:`${this.props.tileHeight/2-this.props.iconSize/2}px`,
                          color: this.props.tile.textColor,

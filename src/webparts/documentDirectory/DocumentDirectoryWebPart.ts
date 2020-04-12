@@ -166,6 +166,11 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                       type: CustomCollectionFieldType.string
                     },
                     {
+                      id: "columns",
+                      title: "SpanColumns",
+                      type: CustomCollectionFieldType.number
+                    },
+                    {
                       id: "text",
                       title: "Text",
                       type: CustomCollectionFieldType.string,
