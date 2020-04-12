@@ -11,7 +11,7 @@ export class HoverCard extends React.Component<IHoverCardProps, {}>{
     public render() {
       
         const hoverStyle={
-            "transform":   this.props.isHovered ? 'translateX(0px)' : `translateX(-${this.props.tileWidth}px)`,
+            "transform":   this.props.isHovered ? 'translateX(0px)' : `translateX(-100%)`,
             "fontsize": `${this.props.hoverTextFontSize}`,
             "width":`${this.props.tileWidth}px`
         };

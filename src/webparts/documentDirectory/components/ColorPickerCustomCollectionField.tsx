@@ -5,18 +5,16 @@ import SwatchColorPickerDialog from './PopupSwatchColorPicker';
 import { Icon, Button, ActionButton, CommandButton } from 'office-ui-fabric-react';
 export interface IColorPickerCustomCollectionFieldProps {
     initialColor: string;
-    itemId: string;
     updateColor: (newColor: string) => void;
-    textColor: string;
 }
 export interface IColorPickerCustomCollectionFieldState {
     showColorPicker: boolean;
-    newColor: string;
+    
 }
 export class ColorPickerCustomCollectionField extends React.Component<IColorPickerCustomCollectionFieldProps, IColorPickerCustomCollectionFieldState>{
     constructor(props) {
         super(props);
-        this.state = { showColorPicker: false, newColor: this.props.initialColor };
+        this.state = { showColorPicker: false};
     }
     public render() {
 
@@ -28,11 +26,9 @@ export class ColorPickerCustomCollectionField extends React.Component<IColorPick
                         this.setState({ showColorPicker: true });
                         const dialog: SwatchColorPickerDialog = new SwatchColorPickerDialog();
                         dialog.message = 'Select a new color for this tile';
-                        dialog.colorCode = this.state.newColor;
+                        dialog.colorCode = this.props.initialColor;
                         dialog.show().then(() => {
-                            this.setState((current) => ({ ...current, newColor: dialog.colorCode }));
-                            this.props.updateColor(this.state.newColor);
-
+                            this.props.updateColor(dialog.colorCode);
                         });
                     }
                     }>Standard
@@ -43,13 +39,11 @@ export class ColorPickerCustomCollectionField extends React.Component<IColorPick
                     onClick={(e) => {
                         debugger;
                         this.setState({ showColorPicker: true });
-                        let cstmdialog: ColorPickerDialog = new ColorPickerDialog();
-                        cstmdialog.message = 'Select a new color for this tile';
-                        cstmdialog.colorCode = this.state.newColor;
-                        cstmdialog.show().then(() => {
-                            this.setState((current) => ({ ...current, newColor: cstmdialog.colorCode }));
-                            this.props.updateColor(this.state.newColor);
-
+                        let clrdialog: ColorPickerDialog = new ColorPickerDialog();
+                        clrdialog.message = 'Select a new color for this tile';
+                        clrdialog.colorCode = this.props.initialColor;
+                        clrdialog.show().then(() => {
+                            this.props.updateColor(clrdialog.colorCode);
                         });
                     }
                     }>Custom
