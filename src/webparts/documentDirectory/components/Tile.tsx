@@ -21,7 +21,7 @@ export class Tile extends React.Component<ITileProps, ITileState>{
         this.state = { isHovered: false };
     }
     public render() {
-        const effectiveTileWidth=this.props.tile.columns?this.props.tileWidth*this.props.tile.columns:this.props.tileWidth;
+        const effectiveTileWidth=this.props.tile.cols?this.props.tileWidth*this.props.tile.cols:this.props.tileWidth;
         return (
             <a href={this.props.tile.url}  className={styles.tileAnchor}>
                 <div className={styles.tile} style={{ width: effectiveTileWidth, height: this.props.tileHeight, backgroundColor: this.props.tile.color }}

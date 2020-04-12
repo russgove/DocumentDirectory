@@ -38,7 +38,8 @@
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "Money"
+                    "iconName": "Money",
+                    "cols": 2
                 },
                 {
                     "color": "#B7C8C8",
@@ -46,7 +47,8 @@
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "MobileReport"
+                    "iconName": "MobileReport",
+                    "cols": 1
                 },
                 {
                     "color": "#3DC2E8",
@@ -54,7 +56,8 @@
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "AlarmClock"
+                    "iconName": "AlarmClock",
+                    "cols": 4
                 },
                 {
                     "color": "#618CC9",
@@ -62,7 +65,8 @@
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "12PointStar"
+                    "iconName": "12PointStar",
+                    "cols": 1
                 },
                 {
                     "color": "#8379B8",
@@ -70,7 +74,8 @@
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "AlertSolid"
+                    "iconName": "AlertSolid",
+                    "cols": 1
                 },
                 {
                     "color": "#E64097",
@@ -78,7 +83,8 @@
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "AnalyticsQuery"
+                    "iconName": "AnalyticsQuery",
+                    "cols": 1
                 },
                 {
                     "color": "#F36C31",
@@ -86,42 +92,48 @@
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
                     "textColor": "#FFFFFF",
-                    "iconName": "Add"
+                    "iconName": "Add",
+                    "cols": 1
                 },
                 {
                     "color": "#F8E816",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ENG*",
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "cols": 1
                 },
                 {
                     "color": "#640024",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "cols": 1
                 },
                 {
                     "color": "#640024",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ENG*",
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "cols": 1
                 },
                 {
                     "color": "#0F206C",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ADMN*",
                     "text": "TP-ADMN",
                     "hoverText": "Administration Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "cols": 1
                 },
                 {
                     "color": "#640024",
                     "url": "/sites/TronDocsDev/search/Pages/results_kwinana.aspx#k=DocumentNumber:TP-ENG*",
                     "text": "TP-ENG",
                     "hoverText": "Engineering Controlled Documents​",
-                    "textColor": "#FFFFFF"
+                    "textColor": "#FFFFFF",
+                    "cols": 1
                 }
             ]
         }

@@ -6,5 +6,5 @@ export interface ITile {
     textColor:string;
     isDisabled:boolean;
     iconName?:string;
-    columns?:number;
+    cols:number;
 }

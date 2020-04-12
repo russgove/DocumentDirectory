@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styles from './DocumentDirectory.module.scss';
+import styles from '../DocumentDirectory.module.scss';
 import ColorPickerDialog from './PopupColorPicker';
 import SwatchColorPickerDialog from './PopupSwatchColorPicker';
 import { ActionButton, CommandButton } from 'office-ui-fabric-react/lib/Button';

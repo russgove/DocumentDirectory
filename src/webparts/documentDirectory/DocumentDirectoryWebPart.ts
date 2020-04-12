@@ -13,9 +13,9 @@ import DocumentDirectory from './components/DocumentDirectory';
 import { IDocumentDirectoryProps } from './components/IDocumentDirectoryProps';
 import { PropertyFieldCollectionData, CustomCollectionFieldType } from '@pnp/spfx-property-controls/lib/PropertyFieldCollectionData';
 
-import { ColorPickerCustomCollectionField } from "./components/ColorPickerCustomCollectionField";
-import { IconPickerCustomCollectionField } from "./components/IconPickerCustomCollectionField";
-import { TileViewerCustomCollectionField } from "./components/TileViewerCustomCollectionField";
+import { ColorPickerCustomCollectionField } from "./components/colorpicker/ColorPickerCustomCollectionField";
+import { IconPickerCustomCollectionField } from "./components/iconPicker/IconPickerCustomCollectionField";
+import { TileViewerCustomCollectionField } from "./components/tileViewer/TileViewerCustomCollectionField";
 
 export interface IDocumentDirectoryWebPartProps {
   description: string;
@@ -165,8 +165,8 @@ export default class DocumentDirectoryWebPart extends BaseClientSideWebPart<IDoc
                       type: CustomCollectionFieldType.string
                     },
                     {
-                      id: "columns",
-                      title: "SpanColumns",
+                      id: "cols",
+                      title: "Span Columns",
                       type: CustomCollectionFieldType.number
                     },
                     {

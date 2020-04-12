@@ -4,8 +4,8 @@ import IconPickerDialog from './PopupIconPicker';
 import { Button } from 'office-ui-fabric-react/lib/Button';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
-import { ITile } from "../ITile";
-import styles from './DocumentDirectory.module.scss';
+import { ITile } from "../../ITile";
+import styles from '../DocumentDirectory.module.scss';
 export interface IIconPickerCustomCollectionFieldProps {
 
     updateIcon: (newIcon: string) => void;

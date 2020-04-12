@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styles from './DocumentDirectory.module.scss';
-import { ITile } from "../ITile";
-import { Tile } from "./Tile";
+import styles from '../DocumentDirectory.module.scss';
+import { ITile } from "../../ITile";
+import { Tile } from "../Tile";
 export interface ITileViewerCustomCollectionFieldProps {
     tile: ITile;
     tileWidth: number;
@@ -18,12 +18,11 @@ export class TileViewerCustomCollectionField extends React.Component<ITileViewer
 
     }
     public render() {
-        let singleColumnTile= this.props.tile;
-        singleColumnTile.columns=1;
+   
         return (
             <div className={styles.documentDirectory} style={{width:`${this.props.tileWidth}px`,height:`${this.props.tileHeight}px`}}>
             <Tile
-                tile={singleColumnTile}
+                tile={{...this.props.tile,cols:1}}
                 tileWidth={this.props.tileWidth}
                 tileHeight={this.props.tileHeight}
                 textFontSize={this.props.textFontSize}

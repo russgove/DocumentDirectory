@@ -5,8 +5,8 @@ import {   DialogFooter,    DialogContent,} from 'office-ui-fabric-react/lib/Dia
 import {    Icon} from 'office-ui-fabric-react/lib/Icon';
 import {    PrimaryButton,    Button,} from 'office-ui-fabric-react/lib/Button';
 //import { SearchBox, } from 'office-ui-fabric-react/lib/SearchBox';
-import iconNames from "../../IconNames";
-import styles from './DocumentDirectory.module.scss';
+import iconNames from "../../../IconNames";
+import styles from '../DocumentDirectory.module.scss';
 
 export interface IPopupIconPickerProps {
     message: string;
@@ -36,7 +36,7 @@ export class PopupIconPicker extends React.Component<IPopupIconPickerProps, IPop
     }
     private onChange = (_event?: React.ChangeEvent<HTMLInputElement>, newValue?: string): void => {
         debugger;
-        this.setState({ searchText: newValue })
+        this.setState({ searchText: newValue });
         let items: string[];
         if (newValue.length > 2) {
             items = this.allIconNames.filter(item => {

@@ -6,7 +6,7 @@ import { Tile } from "./Tile";
 export default class DocumentDirectory extends React.Component<IDocumentDirectoryProps, {}> {
   public render(): React.ReactElement<IDocumentDirectoryProps> {
     const tiles = [];
-
+debugger;
     for (const propTile of this.props.tiles) {
       if (!propTile.isDisabled)
       tiles.push(<Tile  
