@@ -101,6 +101,7 @@ debugger;
             </div>
 
             <DialogFooter>
+                <Button text='Remove Icon' title='Remove' onClick={() => { this.props.submit(""); }} />
                 <Button text='Cancel' title='Cancel' onClick={this.props.close} />
                 <PrimaryButton text='OK' title='OK' onClick={() => { this.props.submit(this._pickedIcon); }} />
             </DialogFooter>

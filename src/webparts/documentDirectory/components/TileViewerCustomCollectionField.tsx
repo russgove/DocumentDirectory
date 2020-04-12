@@ -18,11 +18,12 @@ export class TileViewerCustomCollectionField extends React.Component<ITileViewer
 
     }
     public render() {
-
+        let singleColumnTile= this.props.tile;
+        singleColumnTile.columns=1;
         return (
             <div className={styles.documentDirectory} style={{width:`${this.props.tileWidth}px`,height:`${this.props.tileHeight}px`}}>
             <Tile
-                tile={this.props.tile}
+                tile={singleColumnTile}
                 tileWidth={this.props.tileWidth}
                 tileHeight={this.props.tileHeight}
                 textFontSize={this.props.textFontSize}

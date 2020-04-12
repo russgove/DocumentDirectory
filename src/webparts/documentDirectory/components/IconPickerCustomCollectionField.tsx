@@ -8,7 +8,7 @@ import styles from './DocumentDirectory.module.scss';
 export interface IIconPickerCustomCollectionFieldProps {
 
     updateIcon: (newIcon: string) => void;
-    
+  
     tile:ITile;
 }
 export interface IIconPickerCustomCollectionFieldState {
@@ -23,7 +23,7 @@ export class IconPickerCustomCollectionField extends React.Component<IIconPicker
 
         return (
             <div className={styles.IconPickerCustomCollectionField}>
-                <Icon iconName={this.props.tile.iconName}></Icon>
+                <Icon iconName={this.props.tile.iconName} className={styles.icon}></Icon>
                 <br />
                 <Button 
                     onClick={(e) => {

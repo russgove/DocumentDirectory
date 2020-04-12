@@ -1,6 +1,10 @@
     @import '~office-ui-fabric-react/dist/sass/References.scss';
     .IconPickerCustomCollectionField {
         width: 70px;
+        .icon {
+            padding-left: 13px;
+            font-size: 30px;
+        }
     }
     
     .ColorPickerCustomCollectionField {
